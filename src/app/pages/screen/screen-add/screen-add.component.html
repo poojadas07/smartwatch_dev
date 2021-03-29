@@ -1,0 +1,52 @@
+<div>
+    <form nz-form [formGroup]="cForm">
+        <nz-form-item>
+          <nz-form-label [nzSm]="7" [nzXs]="26" nzRequired nzFor="clientName">Client </nz-form-label>
+          <nz-form-control [nzSm]="9" [nzXs]="24" nzErrorTip="Input is required !">
+            <nz-select formControlName="clientName">
+              <nz-option *ngFor="let client of clients" nzLabel="{{client.clientName}}" nzValue="{{client.clientId}}"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSm]="7" [nzXs]="26" nzRequired nzFor="departmentName">Department </nz-form-label>
+            <nz-form-control [nzSm]="9" [nzXs]="24" nzErrorTip="Input is required !">
+              <nz-select formControlName="departmentName">
+                <nz-option *ngFor="let department of departments" nzLabel="{{department.departmentName}}" nzValue="{{department.departmentId}}"></nz-option>
+              </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="name">Screen</nz-form-label>
+            <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Input is required !">
+            <input nz-input formControlName="name"/>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item *ngIf="!isEdit">
+            <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="rowNo">Rows</nz-form-label>
+            <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Input is required !">
+            <input nz-input formControlName="rowNo"/>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item *ngIf="!isEdit">
+            <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="colNo">Columns</nz-form-label>
+            <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Input is required !">
+            <input nz-input formControlName="colNo"/>
+            </nz-form-control>
+        </nz-form-item>
+  
+    </form>
+  </div>
+  
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+    <button nz-button nzType="primary" [disabled]="!cForm.valid && !isEdit" (click)="onOk()"
+            [nzLoading]="isLoading">OK
+    </button>
+  </div>
+  
+  

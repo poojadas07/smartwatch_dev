@@ -1,0 +1,18 @@
+<div class="nav-item d-flex align-items-center px-sm" nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="userMenu">
+  <nz-avatar nzSrc="assets/img/user.png" nzSize="small"></nz-avatar>
+  {{authService.user?.name}}
+</div>
+<nz-dropdown-menu #userMenu="nzDropdownMenu">
+  <div nz-menu class="user-menu">
+    
+    <div nz-menu-item routerLink="/pages/setting">
+      <i nz-icon nzType="setting"></i>
+      Profile
+    </div>
+    <li nz-menu-divider></li>
+    <div nz-menu-item (click)="logout()">
+      <i nz-icon nzType="logout" style="color: red;"></i>
+      Logout
+    </div>
+  </div>
+</nz-dropdown-menu>

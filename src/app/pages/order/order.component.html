@@ -1,0 +1,78 @@
+<div class="search-box">
+  <input type="text" nz-input placeholder="Search OrderNo" [(ngModel)]="searchValue"/>
+  <button nz-button nzType="primary" (click)="search()">
+    Search
+  </button>
+  <button nz-button (click)="reset()">Reset</button>
+</div>
+
+<nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+<nz-table #nestedTable *ngIf="list" [nzData]="list" [nzPageSize]="9" nzSize="small">
+  <thead>
+  <tr>
+    <th nzShowExpand></th>
+    <th>OrderNo</th>
+    <th>OrderDate</th>
+    <th>UserName</th>
+    <th>Num</th>
+    <th>Amount($)</th>
+    <th>Pay</th>
+    <th>PayDate</th>
+    <th>Express</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+    <tr>
+      <td nzShowExpand [(nzExpand)]="data.expand"></td>
+      <td>{{ data.orderNo }}</td>
+      <td>{{ data.orderDate }}</td>
+      <td>{{ data.userName }}</td>
+      <td>{{ data.num }}</td>
+      <td>{{ data.amount.toFixed(2) }}</td>
+      <td>{{ data.pay }}</td>
+      <td>{{ data.payDate }}</td>
+      <td>{{ data.delivery }}</td>
+      <td>
+        <nz-badge [nzStatus]="'success'" [nzText]="data.status"></nz-badge>
+      </td>
+      <td>
+        <button nz-button nzType="primary" (click)="onView(data)">
+          <i nz-icon nzType="eye" nzTheme="outline" [nzSpin]="true"></i>
+        </button>
+        <button nz-button nzType="primary" (click)="onEdit(data)">
+          <i nz-icon nzType="edit" nzTheme="outline"></i>
+        </button>
+
+      </td>
+    </tr>
+    <tr [nzExpand]="data.expand">
+      <td></td>
+      <td colspan="10">
+        <nz-table #innerTable [nzData]="data.details" nzSize="small" [nzShowPagination]="false">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Img</th>
+    <th>Price($)</th>
+    <th>Num</th>
+    <th>Amount($)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of innerTable.data">
+    <td>{{ data.name }}</td>
+    <td><img [src]="data.img"></td>
+    <td>{{ data.detailPrice }}</td>
+    <td>{{ data.num }}</td>
+    <td>{{ data.amount }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+</td>
+</tr>
+</ng-template>
+</tbody>
+</nz-table>

@@ -1,0 +1,34 @@
+<div>
+    <form nz-form [formGroup]="cForm">
+      <nz-form-item>
+        <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="row">Row</nz-form-label>
+        <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Input is required !">
+          <input nz-input formControlName="row"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="column">Column</nz-form-label>
+        <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Input is required !">
+          <input nz-input formControlName="column"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="sensorId">Sensor ID</nz-form-label>
+        <nz-form-control [nzSm]="19" [nzXs]="24" nzErrorTip="Input is required !">
+          <input nz-input formControlName="sensorId"/>
+        </nz-form-control>
+      </nz-form-item>
+
+    </form>
+  </div>
+  
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">Cancel</button>
+    <button nz-button nzType="primary" [disabled]="!cForm.valid" (click)="onOk()"
+            [nzLoading]="isLoading">OK
+    </button>
+  </div>
+  
+  

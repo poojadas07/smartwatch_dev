@@ -1,0 +1,44 @@
+<div class="search-box">
+    <h2>Operator</h2>
+      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue"/>
+      <button nz-button nzType="primary" (click)="searchByKeyword(searchValue)">
+        Search
+      </button>
+      <button nz-button (click)="reset()">Reset</button>
+    </div>
+    
+    <button nz-button class="btn-add" nzType="primary" (click)="add()">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>Add
+    </button>
+    
+    <nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+    <nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+      <thead (nzSortOrderChange)="sort($event)" nzSingleSort>
+      <tr>
+        <th nzShowSort nzSortKey="sort">Sort</th>
+        <th nzShowSort nzSortKey="clientName">Operator</th>
+        <th>Created On</th>
+        <th>Updated On</th>
+        <th>Enable</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let operator of operators; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{operator.operatorName}}</td>
+          <td>{{operator.createdAt}}</td>
+          <td>{{operator.updatedAt}}</td>
+          <td><label nz-checkbox></label></td>
+          <td>
+            <a (click)="editRow(operator)">
+              <i nz-icon nzType="edit" nzTheme="twotone"></i>
+            Edit</a> |
+            <a (click)="deleteRow(operator)">
+              <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>
+            Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    

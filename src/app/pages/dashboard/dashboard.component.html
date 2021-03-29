@@ -1,0 +1,200 @@
+<div>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">group</i>
+          </div>
+          <p class="card-category">Total Users</p>
+          <h3 class="card-title">{{userSize}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons text-danger">warning</i>
+            <a href="#">Get More Space...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-rose card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">equalizer</i>
+          </div>
+          <p class="card-category">Total Countries</p>
+          <h3 class="card-title">{{countrySize}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">local_offer</i> Tracked from Google Analytics
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-success card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">store</i>
+          </div>
+          <p class="card-category">Total Screens</p>
+          <h3 class="card-title">{{screensSize}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">date_range</i> Last 24 Hours
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-info card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-twitter"></i>
+          </div>
+          <p class="card-category">Active Screens</p>
+          <h3 class="card-title">{{activeScreens}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">update</i> Just Updated
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+  <!-- <div nz-row>
+    <div nz-col class="gutter-row" nzSpan="3">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="userSize" [nzTitle]="'Total Users'" [nzPrefix]="prefixTplOne1">
+          </nz-statistic>
+          <ng-template #prefixTplOne1>
+            <i nz-icon nzType="eye" nzTheme="twotone" [nzSpin]="true" nzTwotoneColor="#52c41a"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="3.5">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="countrySize" [nzTitle]="'Total Countries'" [nzPrefix]="prefixTplOne2">
+          </nz-statistic>
+          <ng-template #prefixTplOne2>
+            <i nz-icon nzType="idcard" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="3">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="regionSize" [nzTitle]="'Total Regions'" [nzPrefix]="prefixTplOne3">
+          </nz-statistic>
+          <ng-template #prefixTplOne3>
+            <i nz-icon nzType="shopping" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="3.5">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="locationSize" [nzTitle]="'Total Locations'" [nzPrefix]="prefixTplOne4">
+          </nz-statistic>
+          <ng-template #prefixTplOne4>
+            <i nz-icon nzType="heart" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="3.5">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="departmentSize" [nzTitle]="'Total Departments'" [nzPrefix]="prefixTplOne4">
+          </nz-statistic>
+          <ng-template #prefixTplOne4>
+            <i nz-icon nzType="heart" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="3.5">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="screensSize" [nzTitle]="'Total Screens'" [nzPrefix]="prefixTplOne5">
+          </nz-statistic>
+          <ng-template #prefixTplOne5>
+            <i nz-icon nzType="notification" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="3.5">
+      <div class="gutter-box">
+        <nz-card [nzLoading]="loading">
+          <nz-statistic [nzValue]="activeScreens" [nzTitle]="'Active Screens'" [nzPrefix]="prefixTplOne6">
+          </nz-statistic>
+          <ng-template #prefixTplOne6>
+            <i nz-icon nzType="smile" nzTheme="twotone"></i>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+
+  </div> -->
+
+  <div>
+      <nz-form-item>
+        <nz-form-label [nzSm]="2" [nzXs]="26">Client </nz-form-label>
+        <nz-form-control [nzSm]="4" [nzXs]="24">
+          <nz-select [(ngModel)]="client" (ngModelChange)="changeClient($event)" nzPlaceHolder="Please select">
+            <nz-option *ngFor="let client of clients" nzLabel="{{client.clientName}}" nzValue="{{client.clientId}}"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      
+        <nz-form-label [nzSm]="2" [nzXs]="26" >Location </nz-form-label>
+        <nz-form-control [nzSm]="4" [nzXs]="24">
+          <nz-select [(ngModel)]="location" (ngModelChange)="changeLocation($event)" nzPlaceHolder="Please select">
+            <nz-option *ngFor="let location of locations" nzLabel="{{location.locationName}}" nzValue="{{location.locationId}}"></nz-option>
+          </nz-select>
+        </nz-form-control>
+
+        <nz-form-label [nzSm]="2" [nzXs]="26">Department </nz-form-label>
+        <nz-form-control [nzSm]="4" [nzXs]="24">
+          <nz-select [(ngModel)]="department" (ngModelChange)="changeDepartment($event)" nzPlaceHolder="Please select">
+            <nz-option *ngFor="let department of departments" nzLabel="{{department.departmentName}}" nzValue="{{department.departmentId}}" (keyup)="onKey($event)"></nz-option>
+          </nz-select>
+        </nz-form-control>
+
+        <button nz-button (click)="reset()" style="margin-left: 5%;">Reset</button>
+      </nz-form-item>
+  </div>
+
+<div>
+  <div class="row">
+    <ng-container *ngFor="let screen of screens;"> 
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons"></i>
+            </div>
+            <h4 class="card-title" style="text-align: left;"><b>{{screen.screenName}}</b></h4>
+          </div>
+          <div class="card-body ">
+              <mat-grid-list class="card" cols="{{screen.columnCount}}" rowHeight="60px">
+                <mat-grid-tile *ngFor="let panel of screen.panels;" [ngStyle]="{'background-color': getColor(panel)}">
+                    <p (click)="editRow(panel)">P-{{panel.index.toString()}}</p>
+                </mat-grid-tile>
+              </mat-grid-list>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
