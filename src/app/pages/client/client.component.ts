@@ -19,7 +19,7 @@ export class ClientComponent implements OnInit {
   list: any;
   clients: Observable<any>;
   client: any;
-
+  
   constructor(private couponService: CouponsService,
               private modalService: ModalService,
               private mService: NzModalService,

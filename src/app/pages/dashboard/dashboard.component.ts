@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
   screensSize: any;
   activeScreens= 0;
   countries: any;
-
+  items:any = [1,2,3,4,5,6,7];
 
   constructor(private storage: StorageMap,
     private orderService: OrderService,
