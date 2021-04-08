@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles-loading";
+@import "styles-variables";
+
+.search-box {
+  padding: 8px;
+
+  input {
+    width: auto;
+    margin-bottom: 8px;
+    margin-right: 16px;
+  }
+
+  button {
+    width: 90px;
+    margin-right: 8px;
+  }
+}
+
+
+.btn-add {
+  margin-bottom: 16px;
+  width: 90px;
+}
+
+td {
+  img {
+    max-height: 80px;
+  }
+}
+
+
+.ant-modal-title {
+  color: #ffffff !important;
+}
+
+
+
+.nav-item:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav > li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-item {
+  display: block;
+  min-width: 50px;
+  padding: 8px 2px;
+  line-height: 100%;
+  text-align: center;
+  border-radius: 2px;
+  outline: 0;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+
+.nav-item > i,
+.nav-item > nz-badge  i,
+.nav-item-icon {
+  font-size: 20px !important;
+  transform: none !important;
+}
+
+.nav nz-badge, .nav-item {
+  color: #fff;
+}
+
+
+body::-webkit-scrollbar,
+mat-sidenav.sidenav::-webkit-scrollbar,
+.main-container::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb,
+mat-sidenav.sidenav::-webkit-scrollbar-thumb,
+.main-container::-webkit-scrollbar-thumb {
+  background-color: #6e6e6e;
+  outline: 1px solid #333;
+}

@@ -1,0 +1,76 @@
+<div class="search-box">
+  <h2>Departments</h2>
+    <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue"/>
+    <button nz-button nzType="primary" (click)="searchByKeyword(searchValue)">
+      Search
+    </button>
+    <button nz-button (click)="reset()">Reset</button>
+  </div>
+  
+  <button nz-button class="btn-add" nzType="primary" (click)="add()">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>Add
+  </button>
+  
+  <nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+  <nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+    <thead (nzSortOrderChange)="sort($event)" nzSingleSort>
+    <tr>
+      <th nzShowSort nzSortKey="sort">Sort</th>
+      <th nzShowSort nzSortKey="departmentName">Department</th>
+      <th>Client</th>
+      <th>Location</th>
+      <th>Region</th>
+      <th>Country</th>
+      <!-- <th>Description</th>
+      <th nzShowSort nzSortKey="discountAmount">DiscountAmount</th>
+      <th nzShowSort nzSortKey="amount">Amount</th> -->
+      <th>Created On</th>
+      <th>Updated On</th>
+      <th>Enable</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{department.departmentName}}</td>
+        <td>{{department.clientDetails.clientName}}</td>
+        <td>{{department.location.locationName}}</td>
+        <td>{{department.location.region.regionName}}</td>
+        <td>{{department.location.region.country.countryName}}</td>
+        <!-- <td>data</td>
+        <td>data</td>
+        <td>data</td> -->
+        <!-- <td><label nz-checkbox [(nzChecked)]="data.enable"></label></td> -->
+        <td>{{department.createdAt}}</td>
+        <td>{{department.updatedAt}}</td>
+        <td><label nz-checkbox></label></td>
+        <td>
+          <a (click)="editRow(department)">
+            <i nz-icon nzType="edit" nzTheme="twotone"></i>
+          Edit</a> |
+          <a (click)="deleteRow(department)">
+            <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>
+          Delete</a>
+        </td>
+      </tr>
+    <!-- <tr *ngFor="let data of nzTable.data">
+      <td>{{ data.sort }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.desc }}</td>
+      <td>{{ data.discountAmount }}</td>
+      <td>{{ data.amount }}</td>
+      <td><label nz-checkbox [(nzChecked)]="data.enable"></label></td>
+      <td>{{ data.beginDate }}</td>
+      <td>{{data.endDate}}</td>
+      <td>
+        <a (click)="editRow(data)">
+          <i nz-icon nzType="edit" nzTheme="twotone"></i>
+          Edit</a> |
+        <a nz-popconfirm nzTitle="Are you sure to delete?" (nzOnConfirm)="deleteRow(data.id)">
+          <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>Delete</a>
+      </td>
+    </tr> -->
+    </tbody>
+  </nz-table>
+  

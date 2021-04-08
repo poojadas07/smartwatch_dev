@@ -1,0 +1,68 @@
+<div class="search-box">
+  <h2>Screens</h2>
+    <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue"/>
+    <button nz-button nzType="primary" (click)="searchByKeyword(searchValue)">
+      Search
+    </button>
+    <button nz-button (click)="reset()">Reset</button>
+  </div>
+
+  <!-- <div class="search-box">
+    <nz-form-label [nzSm]="7" [nzXs]="26" nzFor="searchDepartment">Choose Department</nz-form-label>
+    <nz-select [(ngModel)]="searchDepartment" style="width: 30%;">
+      <nz-option *ngFor="let department of departments" nzLabel="{{department.departmentName}}" nzValue="{{department.departmentName}}"></nz-option>
+    </nz-select> 
+    <button nz-button nzType="primary" (click)="searchByDepartment(searchDepartment)">
+      Search
+    </button>
+    
+  </div> -->
+  
+  <button nz-button class="btn-add" nzType="primary" (click)="add()">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>Add
+  </button>
+  
+  <nz-skeleton [nzActive]="true" *ngIf="!list" [nzParagraph]="{ rows: 10 }"></nz-skeleton>
+  <nz-table *ngIf="list" #nzTable [nzData]="list" [nzShowSizeChanger]="false" nzSize="small" [nzBordered]="true">
+    <thead (nzSortOrderChange)="sort($event)" nzSingleSort>
+    <tr>
+      <th nzShowSort nzSortKey="sort">Sort</th>
+      <th nzShowSort nzSortKey="screenName">Screen</th>
+      <th>Rows</th>
+      <th>Columns</th>
+      <th>Department</th>
+      <th>Client</th>
+      <th>Location</th>
+      <th>Region</th>
+      <th>Country</th>
+      <th>Created On</th>
+      <th>Updated On</th>
+      <th>Enable</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let screen of screens; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{screen.screenName}}</td>
+        <td>{{screen.rowCount}}</td>
+        <td>{{screen.columnCount}}</td>
+        <td>{{screen.department.departmentName}}</td>
+        <td>{{screen.department.clientDetails.clientName}}</td>
+        <td>{{screen.department.location.locationName}}</td>
+        <td>{{screen.department.location.region.regionName}}</td>
+        <td>{{screen.department.location.region.country.countryName}}</td>
+        <td>{{screen.createdAt}}</td>
+        <td>{{screen.updatedAt}}</td>
+        <td><label nz-checkbox></label></td>
+        <td>
+          <a (click)="editRow(screen)">
+            <i nz-icon nzType="edit" nzTheme="twotone"></i>
+          Edit</a> |
+          <a (click)="deleteRow(screen)">
+            <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#eb2f96'"></i>
+          Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
