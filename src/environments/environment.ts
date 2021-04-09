@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serverBaseUrl: 'http://ec2-3-141-250-88.us-east-2.compute.amazonaws.com:8080/smartwatch/',
+  //serverBaseUrl: 'http://ec2-3-141-250-88.us-east-2.compute.amazonaws.com:8080/smartwatch/',
+  serverBaseUrl: 'http://ec2-18-222-182-155.us-east-2.compute.amazonaws.com:8080/smartwatch/',
   // serverBaseUrl: 'http://localhost:8080/smartwatch/',
 
   firebaseConfig: {
