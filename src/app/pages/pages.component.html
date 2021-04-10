@@ -29,6 +29,28 @@
         </ng-template>
       </ng-container>
     </ul>
+
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-submenu nzTitle="Countries" nzIcon="global">
+        <ul *ngFor="let item of contries_data;">
+          <li nz-submenu nzTitle={{item.countryName}} nzIcon="team" [nzDisabled]="item.regions.length==0">
+            <ul *ngFor="let region of item.regions">
+              <li nz-submenu nzTitle={{region.regionName}} nzIcon="team" [nzDisabled]="region.location.length==0">
+                <ul *ngFor="let location of region.location">
+                  <li nz-menu-item>
+                    <a [routerLink]="['/pages/clientscreen']">{{location.locationName}}</a>
+                    <!--<ul *ngFor="let department of location.department">
+                      <li nz-menu-item>{{department.departmentName}}</li>
+                    </ul>-->
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
   </nz-sider>
   <nz-layout>
     <nz-header class="nav_header">

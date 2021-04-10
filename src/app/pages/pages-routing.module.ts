@@ -40,6 +40,7 @@ const routes: Routes = [
       {path: 'department', loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule)},
       {path: 'screen', loadChildren: () => import('./screen/screen.module').then(m => m.ScreenModule)},
       {path: 'operator', loadChildren: () => import('./operator/operator.module').then(m => m.OperatorModule)},
+      {path: 'clientscreen', loadChildren: () => import('./clientscreen/clientscreen.module').then(m => m.ClientscreenModule)},
       {
         path: 'gauge-car-charts',
         loadChildren: () => import('./gauge-car-charts/gauge-car-charts.module').then(m => m.GaugeCarChartsModule)
