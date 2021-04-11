@@ -3,18 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { ClientscreenRoutingModule } from './clientscreen-routing.module';
 import { ClientscreenComponent } from './clientscreen.component';
-import { ClientscreenaddComponent } from './clientscreenadd/clientscreenadd.component';
+import { ClientscreenAddComponent } from './clientscreen-add/clientscreen-add.component';
 import {SharedModule} from '../../shared/shared.module';
-import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
-  declarations: [ClientscreenComponent, ClientscreenaddComponent],
+  declarations: [ClientscreenComponent, ClientscreenAddComponent],
   imports: [
   CommonModule,
     ClientscreenRoutingModule,
-    SharedModule,
-    MatGridListModule
+    SharedModule
   ],
-  entryComponents: [ClientscreenaddComponent]
+  entryComponents: [ClientscreenAddComponent]
 })
 export class ClientscreenModule { }

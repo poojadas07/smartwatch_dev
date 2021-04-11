@@ -38,7 +38,7 @@
               <li nz-submenu nzTitle={{region.regionName}} nzIcon="team" [nzDisabled]="region.location.length==0">
                 <ul *ngFor="let location of region.location">
                   <li nz-menu-item>
-                    <a [routerLink]="['/pages/clientscreen',location.locationId]">{{location.locationName}}</a>
+                    <a [routerLink]="['/pages/clientscreen']">{{location.locationName}}</a>
                     <!--<ul *ngFor="let department of location.department">
                       <li nz-menu-item>{{department.departmentName}}</li>
                     </ul>-->

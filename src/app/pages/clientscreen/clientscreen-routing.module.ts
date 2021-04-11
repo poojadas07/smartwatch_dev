@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ClientscreenComponent } from './clientscreen.component';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{path: '', component: ClientscreenComponent}];
-
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-
 export class ClientscreenRoutingModule { }
