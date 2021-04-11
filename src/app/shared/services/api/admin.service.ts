@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdminService {
+  
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   
@@ -391,6 +392,15 @@ export class AdminService {
       );
   }
 
+  getDepartmentByLocationName(locationId: string): Observable<any> {
+    let urlString = environment.serverBaseUrl + 'dept/findDepartmentByLocation?locationId='+locationId;
+
+    return this.http.get(urlString, {})
+      .pipe(
+        map(data => data),
+        catchError(this.handleError)
+      );
+  }
   addDepartment(clientId: String , locationId: String , departmentName: String): Observable<any>{
     let urlString = environment.serverBaseUrl + 'dept/createDepartment?clientId='+clientId+'&locationId='+locationId+'&departmentName='+departmentName;
 
